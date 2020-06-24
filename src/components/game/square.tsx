@@ -5,11 +5,21 @@ type Props = {
   value: number
 }
 
-class Square extends React.Component<Props> {
+type State = {
+  value: String
+}
+
+class Square extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props)
+    this.state = {
+      value: ""
+    };
+  }
   render() {
     return (
-      <button className="square">
-        {this.props.value}
+      <button className="square" onClick={() => this.setState({ value: 'X' })}>
+        {this.state.value}
       </button>
     );
   }
