@@ -2,27 +2,16 @@ import * as React from "react";
 import { hot } from "react-hot-loader/root";
 
 type Props = {
-  value: number
-}
-
-type State = {
   value: String
+  onClick: () => void;
 }
 
-class Square extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = {
-      value: ""
-    };
-  }
-  render() {
-    return (
-      <button className="square" onClick={() => this.setState({ value: 'X' })}>
-        {this.state.value}
-      </button>
-    );
-  }
+function Square(props: Props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
 }
 
 export default hot(Square);
